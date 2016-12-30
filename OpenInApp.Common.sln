@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenInApp.Common", "OpenInApp.Common\OpenInApp.Common.csproj", "{78680FB3-22E5-4200-9756-2C2CEC66161D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenInApp.Common.Tests", "OpenInApp.Tests\OpenInApp.Common.Tests.csproj", "{14817DAF-3B76-4E3A-9C6B-B69C9A438183}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenInApp.Common.Tests", "OpenInApp.Common.Tests\OpenInApp.Common.Tests.csproj", "{14817DAF-3B76-4E3A-9C6B-B69C9A438183}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
