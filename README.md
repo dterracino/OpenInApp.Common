@@ -3,7 +3,7 @@
 [![Licence](https://img.shields.io/github/license/gittools/gitlink.svg)](/LICENSE.txt)
 [![Build status](https://ci.appveyor.com/api/projects/status/ix4cov77vx5j3dcm?svg=true)](https://ci.appveyor.com/project/GregTrevellick/openinapp-common)
 
-Download this package from [Nuget](https://www.nuget.org/packages/Newtonsoft.Json/9.0.2-beta1).
+Download this package from [Nuget](https://www.nuget.org/packages/OpenInApp.Common/).
 
 ---------------------------------------
 

@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <licenseUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/GregTrevellick/OpenInApp.Common</projectUrl>
-    <iconUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/OpenInApp_Generic_175x175.png</iconUrl>
+    <iconUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/OpenInApp_Generic_175x175.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Base shared functionality</releaseNotes>
