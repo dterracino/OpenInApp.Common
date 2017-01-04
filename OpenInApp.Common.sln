@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CONTRIBUTING.md = CONTRIBUTING.md
 		ISSUE_TEMPLATE.md = ISSUE_TEMPLATE.md
 		LICENSE.txt = LICENSE.txt
+		OpenInApp_Generic_175x175.png = OpenInApp_Generic_175x175.png
 		README.md = README.md
 	EndProjectSection
 EndProject
