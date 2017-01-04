@@ -3,13 +3,12 @@
 [![Licence](https://img.shields.io/github/license/gittools/gitlink.svg)](/LICENSE.txt)
 [![Build status](https://ci.appveyor.com/api/projects/status/ix4cov77vx5j3dcm?svg=true)](https://ci.appveyor.com/project/GregTrevellick/openinapp-common)
 
-Download this package from [Nuget](https://www.nuget.org/packages/OpenInApp.Common/).
-
----------------------------------------
 
 ![](OpenInApp_Generic_175x175.png)
 
 A .Net package containing shared code for use in a series of Visual Studio extensions that allow a file to be opened in third party applications directly from within Visual Studio.
+
+Download this package from [Nuget](https://www.nuget.org/packages/OpenInApp.Common/).
 
 See the [change log](CHANGELOG.md) for release history. Bugs can be logged [here](https://github.com/GregTrevellick/OpenInApp.Common/issues).
 
