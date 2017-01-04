@@ -17,4 +17,6 @@ Open command prompt:
 > C:\Users\greg\Desktop\nuget spec
 > C:\Users\greg\Desktop\nuget pack OpenInApp.Common.csproj
 Successfully created package 'C:\Users\greg\Source\Repos\OpenInApp.Common\OpenInApp.Common\OpenInApp.Common.1.0.0.nupkg'.
+> C:\Users\greg\Desktop\nuget push OpenInApp.Common.1.0.0.nupkg MyNugetApiKeyGuid -Source https://www.nuget.org/api/v2/package
+Your package was pushed.
 -->
