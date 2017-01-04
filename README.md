@@ -20,3 +20,5 @@ See the [change log](CHANGELOG.md) for release history. Bugs can be logged [here
 ## Credits
 
 Adapted from code originally written by [Mads Kristensen](https://github.com/madskristensen) [here](https://github.com/madskristensen/OpenInSublimeText/ "Open in Sublime Text") and [here](https://github.com/madskristensen/OpenInVsCode "Open in Visual Studio Code").
+
+With thanks to tutorial documentation available at [Nuget](https://docs.nuget.org/ndocs/quickstart/create-and-publish-a-package).
