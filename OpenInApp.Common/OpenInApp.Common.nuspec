@@ -4,7 +4,7 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
+    <authors>Greg Trevellick</authors>
     <owners>$author$</owners>
     <licenseUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/GregTrevellick/OpenInApp.Common</projectUrl>
