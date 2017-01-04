@@ -7,7 +7,7 @@ Download this package from [Nuget](https://nuget.com/items?itemName=GregTrevelli
 
 ---------------------------------------
 
-[](OpenInApp_Generic_175x175.png)
+[!](OpenInApp_Generic_175x175.png)
 
 A .Net package containing shared code for use in a series of Visual Studio extensions that allow a file to be opened in third party applications directly from within Visual Studio.
 
