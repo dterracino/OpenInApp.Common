@@ -8,10 +8,10 @@
     <owners>$author$</owners>
     <licenseUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/GregTrevellick/OpenInApp.Common</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <iconUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/OpenInApp_Generic_175x175.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <releaseNotes>Base shared functionality</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>OpenInApp.Common</tags>
   </metadata>
