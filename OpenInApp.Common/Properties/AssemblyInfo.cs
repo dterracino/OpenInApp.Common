@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("OpenInApp.Common")]
-[assembly: AssemblyDescription("OpenInApp.Common shared functionality")]
+[assembly: AssemblyDescription("A .Net package containing shared code for use in a series of Visual Studio extensions that allow a file to be opened in third party applications directly from within Visual Studio.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Trevellick")]
+[assembly: AssemblyCompany("Greg Trevellick")]
 [assembly: AssemblyProduct("OpenInApp.Common")]
 [assembly: AssemblyCopyright("Copyright ©  Greg Trevellick 2017")]
 [assembly: AssemblyTrademark("")]
