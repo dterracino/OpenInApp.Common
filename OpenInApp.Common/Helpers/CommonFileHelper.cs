@@ -10,8 +10,16 @@ using System.Windows.Forms;
 
 namespace OpenInApp.Common.Helpers
 {
+    /// <summary>
+    /// Helper class containing generic file-related methods for 'OpenInApp' VS packages
+    /// </summary>
     public class CommonFileHelper
     {
+        /// <summary>
+        /// Prompts the user to browses for a file on disc and returns details.
+        /// </summary>
+        /// <param name="executableFileToBrowseFor">The executable file to browse for.</param>
+        /// <returns></returns>
         public static FileBrowseOutcomeDto BrowseToFileLocation(string executableFileToBrowseFor)
         {
             var dialog = new OpenFileDialog
@@ -31,6 +39,11 @@ namespace OpenInApp.Common.Helpers
             };
         }
 
+        /// <summary>
+        /// Gets the file names to be opened, as chosen in Solution Explorer.
+        /// </summary>
+        /// <param name="dte">The DTE.</param>
+        /// <returns></returns>
         public static IEnumerable<string> GetFileNamesToBeOpened(DTE2 dte)
         {
             var items = GetSelectedFilesToBeOpened(dte);
@@ -45,6 +58,11 @@ namespace OpenInApp.Common.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Gets the selected files to be opened, as chosen in Solution Explorer.
+        /// </summary>
+        /// <param name="dte">The DTE.</param>
+        /// <returns></returns>
         public static IEnumerable<string> GetSelectedFilesToBeOpened(DTE2 dte)
         {
             var selectedItems = (Array)dte.ToolWindows.SolutionExplorer.SelectedItems;
@@ -54,6 +72,12 @@ namespace OpenInApp.Common.Helpers
                    select projectItem.FileNames[1];
         }
 
+        /// <summary>
+        /// Checks if a file extension(s) is a typical file extension for the app, as defined in Tools | Options.
+        /// </summary>
+        /// <param name="fullFileNames">The full file names.</param>
+        /// <param name="typicalFileExtensions">The typical file extensions.</param>
+        /// <returns></returns>
         public static bool AreTypicalFileExtensions(IEnumerable<string> fullFileNames, IEnumerable<string> typicalFileExtensions)
         {
             var result = false;
@@ -71,6 +95,11 @@ namespace OpenInApp.Common.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Gets a collection of file type extensions, from a collection of file names.
+        /// </summary>
+        /// <param name="fullFileNames">The full file names.</param>
+        /// <returns></returns>
         internal static IEnumerable<string> GetFileTypeExtensions(IEnumerable<string> fullFileNames)
         {
             var result = new List<string>();
@@ -83,6 +112,11 @@ namespace OpenInApp.Common.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Gets the name of the first physically non-existant file, from a collection of file names.
+        /// </summary>
+        /// <param name="fullFileNames">The full file names.</param>
+        /// <returns></returns>
         public static string GetMissingFileName(IEnumerable<string> fullFileNames)
         {
             var result = string.Empty;
@@ -99,6 +133,11 @@ namespace OpenInApp.Common.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Gets the typical file extensions as a CSV string.
+        /// </summary>
+        /// <param name="defaultExts">The default exts.</param>
+        /// <returns></returns>
         public static string GetDefaultTypicalFileExtensionsAsCsv(IEnumerable<string> defaultExts)
         {
             var stringBuilder = new StringBuilder();
@@ -109,16 +148,31 @@ namespace OpenInApp.Common.Helpers
             return stringBuilder.ToString().TrimEnd(',');
         }
 
+        /// <summary>
+        /// Gets the typical file extension as list, from a CSV string.
+        /// </summary>
+        /// <param name="typicalFileExtensionsAsCsv">The typical file extensions as CSV.</param>
+        /// <returns></returns>
         public static IEnumerable<string> GetTypicalFileExtensionAsList(string typicalFileExtensionsAsCsv)
         {
             return typicalFileExtensionsAsCsv.Split(',');
         }
 
+        /// <summary>
+        /// Checks if a specified file exists on disc.
+        /// </summary>
+        /// <param name="fullFileName">Full name of the file.</param>
+        /// <returns></returns>
         public static bool DoesFileExist(string fullFileName)
         {
             return DoFilesExist(new List<string> { fullFileName });
         }
 
+        /// <summary>
+        /// Checks if all specified files exists on disc.
+        /// </summary>
+        /// <param name="fullFileNames">The full file names.</param>
+        /// <returns></returns>
         public static bool DoFilesExist(IEnumerable<string> fullFileNames)
         {
             var result = true;

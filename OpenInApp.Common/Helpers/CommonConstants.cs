@@ -2,6 +2,9 @@
 
 namespace OpenInApp.Common.Helpers
 {
+    /// <summary>
+    /// A helper class containing generic string constants
+    /// </summary>
     public static class CommonConstants
     {
         public const string ActualPathToExeOptionDetailedDescription = "Specify the absolute install path for the application.";

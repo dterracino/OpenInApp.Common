@@ -3,13 +3,29 @@ using System.IO;
 
 namespace OpenInApp.Common.Helpers
 {
+    /// <summary>
+    /// Helper class for Visual Studio | Tools | Options
+    /// </summary>
     public class GeneralOptionsHelper
     {
+        /// <summary>
+        /// Returns path to specified executable file, within the the specified folder name, within Program Files directory.
+        /// </summary>
+        /// <param name="appFolderName">Name of the application folder.</param>
+        /// <param name="executableFileToBrowseFor">The executable file to browse for.</param>
+        /// <returns></returns>
         public static string GetActualPathToExe(string appFolderName, string executableFileToBrowseFor)
         {
             return GetActualPathToExe(appFolderName, null, executableFileToBrowseFor);
         }
 
+        /// <summary>
+        /// Returns path to specified executable file, within the the specified folder and sub-folder names, within Program Files directory.
+        /// </summary>
+        /// <param name="appFolderName">Name of the application folder.</param>
+        /// <param name="appSubFolderName">Name of the application sub folder.</param>
+        /// <param name="executableFileToBrowseFor">The executable file to browse for.</param>
+        /// <returns></returns>
         public static string GetActualPathToExe(string appFolderName, string appSubFolderName, string executableFileToBrowseFor)
         {
             var programFiles = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
