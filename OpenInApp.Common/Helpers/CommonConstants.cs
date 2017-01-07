@@ -20,6 +20,8 @@ namespace OpenInApp.Common.Helpers
             return $"The file \"{missingFileName}\" does not exist.";
         }
 
+		//public const string ToolsOptionsNotice = "(You can change this setting in Tools | Options)";
+
         public static string PromptForActualExeFile(string dodgyPathToFile)
         {
             return InformUserMissingFile(dodgyPathToFile)
