@@ -10,7 +10,8 @@ A .Net package containing shared code for use in a series of Visual Studio exten
 
 Download this package from [Nuget](https://www.nuget.org/packages/OpenInApp.Common/).
 
-![](chart.png)
+[![](chart.png)](https://www.nuget.org/packages/OpenInApp.Common/)
+
 
 See the [change log](CHANGELOG.md) for release history. Bugs can be logged [here](https://github.com/GregTrevellick/OpenInApp.Common/issues).
 
