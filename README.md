@@ -5,6 +5,7 @@
 
 
 ![](OpenInApp_Generic_175x175.png)
+![](chart.png)
 
 A .Net package containing shared code for use in a series of Visual Studio extensions that allow a file to be opened in third party applications directly from within Visual Studio.
 
