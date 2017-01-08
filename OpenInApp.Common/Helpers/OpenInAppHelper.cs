@@ -54,7 +54,11 @@ namespace OpenInApp.Common.Helpers
         {
             bool proceedToExecute = false;
 
-            messageText += Environment.NewLine + Environment.NewLine + CommonConstants.ContinueAnyway;
+            messageText += 
+                Environment.NewLine + Environment.NewLine + 
+                CommonConstants.ContinueAnyway + 
+                Environment.NewLine + Environment.NewLine + 
+                CommonConstants.ToolsOptionsNotice;
 
             var box = MessageBox.Show(
                 messageText,

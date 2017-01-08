@@ -23,8 +23,6 @@ namespace OpenInApp.Common.Helpers
             return $"The file \"{missingFileName}\" does not exist.";
         }
 
-		//public const string ToolsOptionsNotice = "(You can change this setting in Tools | Options)";
-
         public static string PromptForActualExeFile(string dodgyPathToFile)
         {
             return InformUserMissingFile(dodgyPathToFile)
@@ -36,6 +34,7 @@ namespace OpenInApp.Common.Helpers
         
         public const string SuppressTypicalFileExtensionsWarningDetailedDescription = "By default you will see a warning when trying to open a file with an extension that is not typically associated with the application. Setting this option to true will prevent this warning from being displayed.";
         public const string SuppressTypicalFileExtensionsWarningOptionLabel = "Suppress warning for non-typical file extensions";
+        public const string ToolsOptionsNotice = "(You can change suppress this notice in Tools | Options)";
         public const string TypicalFileExtensionsOptionDetailedDescription = "A comma-separated list of file extensions that can typically be opened in the application. You can open files with extensions that are not in this list, but will be warned first.";
         public const string TypicalFileExtensionsOptionLabel = "Typical file extensions";
         public static string UnexpectedError =
