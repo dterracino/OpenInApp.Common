@@ -38,9 +38,12 @@ namespace OpenInApp.Common.Tests.Helpers
         [TestCase("JoePublic.cs", false)]
         [TestCase("JohnDoe.Xml", true)]
         [TestCase("MadsKristensen.", false)]
+        [TestCase("a.xs", false)]
+        [TestCase("a.xsd", true)]
+        [TestCase("a.xsdd", false)]
         [TestCase(null, false)]
         [Category("I")]
-        public void IsTypicalFileTest(string fileName, bool expected)
+        public void AreTypicalFileExtensionsTest(string fileName, bool expected)
         {
             var fullFileNames = new List<string> { fileName };
 
