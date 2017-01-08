@@ -8,7 +8,9 @@
 
 A .Net package containing shared code for use in a series of Visual Studio extensions that allow a file to be opened in third party applications directly from within Visual Studio.
 
-Download this package from [Nuget](https://www.nuget.org/packages/OpenInApp.Common/). ![](chart.png)
+Download this package from [Nuget](https://www.nuget.org/packages/OpenInApp.Common/).
+
+![](chart.png)
 
 See the [change log](CHANGELOG.md) for release history. Bugs can be logged [here](https://github.com/GregTrevellick/OpenInApp.Common/issues).
 
