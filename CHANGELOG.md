@@ -2,6 +2,12 @@
 
 These are the changes to each version that has been released on the official Visual Studio extension gallery.
 
+## 1.0.36
+
+**2017-01-10** <!--21:30 UK / 21:30 UTC-->
+
+- [x] Bug fix when exe file name is null
+
 ## 1.0.27
 
 **2017-01-08** <!--19:00 UK / 19:00 UTC-->

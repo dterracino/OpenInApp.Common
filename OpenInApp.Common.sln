@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenInApp.Common.Archives",
 		OpenInApp.Common.Archives\OpenInApp.Common.1.0.0.nupkg = OpenInApp.Common.Archives\OpenInApp.Common.1.0.0.nupkg
 		OpenInApp.Common.Archives\OpenInApp.Common.1.0.22.nupkg = OpenInApp.Common.Archives\OpenInApp.Common.1.0.22.nupkg
 		OpenInApp.Common.Archives\OpenInApp.Common.1.0.27.nupkg = OpenInApp.Common.Archives\OpenInApp.Common.1.0.27.nupkg
+		OpenInApp.Common.Archives\OpenInApp.Common.1.0.36.nupkg = OpenInApp.Common.Archives\OpenInApp.Common.1.0.36.nupkg
 	EndProjectSection
 EndProject
 Global
