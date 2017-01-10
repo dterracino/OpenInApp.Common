@@ -81,5 +81,16 @@ namespace OpenInApp.Common.Tests.Helpers
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [Test()]
+        [Category("I")]
+        public void DoesFileExistTest()
+        {
+            //Act
+            var actual = CommonFileHelper.DoesFileExist(null);
+
+            //Assert
+            Assert.IsFalse(actual);
+        }
     }
 }

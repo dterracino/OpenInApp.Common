@@ -179,7 +179,11 @@ namespace OpenInApp.Common.Helpers
 
             foreach (var fullFileName in fullFileNames)
             {
-                if (!string.IsNullOrEmpty(fullFileName))
+                if (string.IsNullOrEmpty(fullFileName))
+                {
+                    result = false;
+                }
+                else
                 {
                     if (!File.Exists(fullFileName))
                     {
