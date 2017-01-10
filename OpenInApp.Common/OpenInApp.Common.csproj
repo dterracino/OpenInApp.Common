@@ -62,8 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OpenInApp.Common.1.0.0.nupkg" />
-    <None Include="OpenInApp.Common.1.0.22.nupkg" />
     <None Include="OpenInApp.Common.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
