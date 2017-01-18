@@ -11,7 +11,7 @@
     <iconUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/OpenInApp_Generic_175x175.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Base shared functionality, with annotations</releaseNotes>
+    <releaseNotes>Facilitate asterisk as typical file type wildcard</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>OpenInApp.Common</tags>
   </metadata>
