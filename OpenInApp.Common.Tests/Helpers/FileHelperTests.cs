@@ -55,6 +55,19 @@ namespace OpenInApp.Common.Tests.Helpers
         }
 
         [Test()]
+        [Category("I")]
+        public void AreTypicalFileExtensionsGenericTest()
+        {
+            //Act
+            var actual = CommonFileHelper.AreTypicalFileExtensions(
+                new List<string> { ".", "txt", ".txt", "any.txt", "any.cs" },
+                new List<string> { "*" });
+
+            //Assert
+            Assert.AreEqual(true, actual);
+        }
+
+        [Test()]
         [Category("U")]
         public void GetDefaultTypicalFileExtensionsAsCsvTest()
         {

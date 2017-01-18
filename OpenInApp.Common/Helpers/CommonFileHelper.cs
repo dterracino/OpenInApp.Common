@@ -82,13 +82,20 @@ namespace OpenInApp.Common.Helpers
         {
             var result = false;
 
-            var fileTypeExtensions = GetFileTypeExtensions(fullFileNames);
-
-            foreach (var fileTypeExtension in fileTypeExtensions)
+            if (typicalFileExtensions.First() == "*")
             {
-                if (!string.IsNullOrEmpty(fileTypeExtension))
+                result = true;
+            }
+            else
+            {
+                var fileTypeExtensions = GetFileTypeExtensions(fullFileNames);
+
+                foreach (var fileTypeExtension in fileTypeExtensions)
                 {
-                    result = typicalFileExtensions.Contains(fileTypeExtension.TrimStart('.'), StringComparer.CurrentCultureIgnoreCase);
+                    if (!string.IsNullOrEmpty(fileTypeExtension))
+                    {
+                        result = typicalFileExtensions.Contains(fileTypeExtension.TrimStart('.'), StringComparer.CurrentCultureIgnoreCase);
+                    }
                 }
             }
 
