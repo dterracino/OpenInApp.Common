@@ -46,14 +46,22 @@ namespace OpenInApp.Common.Helpers
                     }
                     else
                     {
-                        var appFolderPaths = appParentFolderPath.GetDirectories(appSubFolderName + "*");
-                        foreach (DirectoryInfo appFolderPath in appFolderPaths)
+                        try
                         {
-                            var path = Path.Combine(appFolderPath.FullName, executableFileToBrowseFor);
-                            if (File.Exists(path))
+                            var appFolderPaths = appParentFolderPath.GetDirectories(appSubFolderName + "*");
+
+                            foreach (DirectoryInfo appFolderPath in appFolderPaths)
                             {
-                                return path;
+                                var path = Path.Combine(appFolderPath.FullName, executableFileToBrowseFor);
+                                if (File.Exists(path))
+                                {
+                                    return path;
+                                }
                             }
+                        }
+                        catch (DirectoryNotFoundException)
+                        {
+                            return null;
                         }
                     }
                 }
