@@ -16,7 +16,8 @@ namespace OpenInApp.Common.Helpers
         /// </summary>
         /// <param name="actualFilesToBeOpened">The actual files to be opened.</param>
         /// <param name="executableFullPath">The full path to the executable.</param>
-        public static void InvokeCommand(IEnumerable<string> actualFilesToBeOpened, string executableFullPath)
+        /// <param name="useShellExecute">Whether or not to use shell execution or execute via operating system.</param>
+        public static void InvokeCommand(IEnumerable<string> actualFilesToBeOpened, string executableFullPath, bool useShellExecute = true)
         {
             var arguments = " ";
 
@@ -25,13 +26,27 @@ namespace OpenInApp.Common.Helpers
                 arguments += "\"" + actualFileToBeOpened + "\"" + " ";
             }
 
+            string fileName;
+            string workingDirectory = string.Empty;
+
+            if (useShellExecute)
+            {
+                fileName = executableFullPath;
+            }
+            else
+            {
+                fileName = Path.GetFileName(executableFullPath);
+                workingDirectory = Path.GetDirectoryName(executableFullPath);
+            }
+            
             var start = new ProcessStartInfo()
             {
-                WorkingDirectory = Path.GetDirectoryName(executableFullPath),
-                FileName = Path.GetFileName(executableFullPath),
                 Arguments = arguments,
                 CreateNoWindow = true,
-                WindowStyle = ProcessWindowStyle.Hidden
+                FileName = fileName,
+                UseShellExecute = useShellExecute,
+                WindowStyle = ProcessWindowStyle.Hidden,
+                WorkingDirectory = workingDirectory
             };
 
             try
