@@ -2,6 +2,12 @@
 
 These are the changes to each version that has been released on the official Visual Studio extension gallery.
 
+## 1.0.57
+
+**2017-01-28** <!--10:30 UK / 10:30 UTC-->
+
+- [x] Start process using shell execution
+
 ## 1.0.52
 
 **2017-01-27** <!--13:45 UK / 13:45 UTC-->
