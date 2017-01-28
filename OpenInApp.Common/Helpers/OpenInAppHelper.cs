@@ -16,7 +16,7 @@ namespace OpenInApp.Common.Helpers
         /// </summary>
         /// <param name="actualFilesToBeOpened">The actual files to be opened.</param>
         /// <param name="executableFullPath">The full path to the executable.</param>
-        /// <param name="useShellExecute">Whether or not to use shell execution or execute via operating system.</param>
+        /// <param name="useShellExecute">Whether or not to use shell execution or execute via operating system. Default is true.</param>
         public static void InvokeCommand(IEnumerable<string> actualFilesToBeOpened, string executableFullPath, bool useShellExecute = true)
         {
             var arguments = " ";
@@ -31,12 +31,12 @@ namespace OpenInApp.Common.Helpers
 
             if (useShellExecute)
             {
-                fileName = executableFullPath;
+                fileName = Path.GetFileName(executableFullPath);
+                workingDirectory = Path.GetDirectoryName(executableFullPath);
             }
             else
             {
-                fileName = Path.GetFileName(executableFullPath);
-                workingDirectory = Path.GetDirectoryName(executableFullPath);
+                fileName = executableFullPath;
             }
             
             var start = new ProcessStartInfo()
