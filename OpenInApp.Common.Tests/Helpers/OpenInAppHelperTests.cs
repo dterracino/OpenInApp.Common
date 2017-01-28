@@ -8,7 +8,7 @@ namespace OpenInApp.Common.Tests.Helpers
     public class OpenInAppHelperTests
     {
         [Test()]
-        //[TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe", false)]
+        [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe", false)]
         [TestCase(@"C:\Program Files (x86)\Altova\XMLSpy2016\XMLSpy.exe", null)]
         [Category("I")]
         public void InvokeCommandTest(string executableFullPath, bool? useShellExecute)
