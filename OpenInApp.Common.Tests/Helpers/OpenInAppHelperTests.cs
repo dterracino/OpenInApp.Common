@@ -8,31 +8,16 @@ namespace OpenInApp.Common.Tests.Helpers
     public class OpenInAppHelperTests
     {
         [Test()]
-        //[TestCase(@"C:\Program Files (x86)\Altova\XMLSpy2016\XMLSpy.exe", null)]
-        //[TestCase(@"C:\Program Files (x86)\bin\gimp-2.8.exe", null)]
-        //[TestCase(@"C:\Program Files (x86)\Markdown Monster\MarkdownMonster.exe", null)]
-
-
-
-        //TODO
-        //TODO
-        //TODO
-        //to be tested with 2 files (work only -2012)
+        [TestCase(@"C:\Program Files (x86)\Altova\XMLSpy2016\XMLSpy.exe", null)]
+        [TestCase(@"C:\Program Files (x86)\bin\gimp-2.8.exe", null)]
+        [TestCase(@"C:\Program Files (x86)\Markdown Monster\MarkdownMonster.exe", null)]
         [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe", false)]
-
-
-
-        //tested with 2 files (2013) both open in a single instance
-        //[TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe", false)]
-        //tested, 2 files (2015)
-        //[TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe", false)]
-        //tested with 2 files (2017) both open in a single instance
-        //[TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe", false)]
-        //cannot test, but doesn't matter
-        //[TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe", false)]
-        //cannot test, but doesn't matter
-        //[TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\devenv.exe", false)]
-        //[TestCase(@"C:\Program Files (x86)\Paint.NET\PaintDotNet.exe", null)]
+        [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe", false)]
+        [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe", false)]
+        [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe", false)]
+        [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe", false)]
+        [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\devenv.exe", false)]
+        [TestCase(@"C:\Program Files (x86)\Paint.NET\PaintDotNet.exe", null)]
         [Category("I")]
         public void InvokeCommandTest(string executableFullPath, bool? useShellExecute)
         {
