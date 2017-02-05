@@ -15,7 +15,8 @@ namespace OpenInApp.Common.Tests.Helpers
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Markdown Monster\MarkdownMonster.exe", null)]
         //nothing happens [TestCase(@"C:\Users\greg\AppData\Local\atom\app-1.13.1\atom.exe", null)]
         //happily opens last file in arguments list, but only last item         [TestCase(@"C:\Users\greg\Desktop\ZZZ open in\_emacs-25.1-2-x86_64-w64-mingw32\bin\runemacs.exe", null)]
-        //fails with one or two args     [TestCase(@"C:\Program Files (x86)\LINQPad5\LINQPad.exe", null)]
+        //emacs only works on 1 file at a time, so must fire up 2 Process.Start's
+            //fails with one or two args     [TestCase(@"C:\Program Files (x86)\LINQPad5\LINQPad.exe", null)]
         //fails with 1 arg prob 2 args also [TestCase(@"C:\Program Files (x86)\LINQPad4\LINQPad.exe", null)]
      //does nothing  [TestCase(@"C:\Program Files (x86)\LINQPad4\LPRun.exe", null)]
         //happily opens last file in arguments list, but only last item         [TestCase(@"C:\Windows\system32\notepad.exe", false)]
