@@ -38,7 +38,12 @@ namespace OpenInApp.Common.Helpers
             {
                 fileName = executableFullPath;
             }
-            
+
+            InvokeProcess(useShellExecute, arguments, fileName, workingDirectory)
+        }
+
+        private static void InvokeProcess(bool useShellExecute, string arguments, string fileName, string workingDirectory)
+        {
             var start = new ProcessStartInfo()
             {
                 Arguments = arguments,
