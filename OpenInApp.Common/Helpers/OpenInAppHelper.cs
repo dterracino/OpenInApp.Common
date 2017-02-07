@@ -16,16 +16,10 @@ namespace OpenInApp.Common.Helpers
         /// </summary>
         /// <param name="actualFilesToBeOpened">The actual files to be opened.</param>
         /// <param name="executableFullPath">The full path to the executable.</param>
+        /// <param name="separateProcessPerFileToBeOpened">Whether or not to start a single process or multiple processes for the actual files to be opened.</param> 
         /// <param name="useShellExecute">Whether or not to use shell execution or execute via operating system. Default is true.</param>
-        public static void InvokeCommand(IEnumerable<string> actualFilesToBeOpened, string executableFullPath, bool useShellExecute = true)
+        public static void InvokeCommand(IEnumerable<string> actualFilesToBeOpened, string executableFullPath, bool separateProcessPerFileToBeOpened = false, bool useShellExecute = true)
         {
-            var arguments = " ";
-
-            foreach (var actualFileToBeOpened in actualFilesToBeOpened)
-            {
-                arguments += "\"" + actualFileToBeOpened + "\"" + " ";
-            }
-
             string fileName;
             string workingDirectory = string.Empty;
 
@@ -39,10 +33,33 @@ namespace OpenInApp.Common.Helpers
                 fileName = executableFullPath;
             }
 
-            InvokeProcess(useShellExecute, arguments, fileName, workingDirectory)
+            if (separateProcessPerFileToBeOpened)
+            {
+                foreach (var actualFileToBeOpened in actualFilesToBeOpened)
+                {
+                    var argument = GetSingleArgument(actualFileToBeOpened);
+                    InvokeProcess(argument, fileName, useShellExecute, workingDirectory);
+                }
+            }
+            else
+            {
+                var arguments = " ";
+
+                foreach (var actualFileToBeOpened in actualFilesToBeOpened)
+                {
+                    arguments += GetSingleArgument(actualFileToBeOpened);
+                }
+
+                InvokeProcess(arguments, fileName, useShellExecute, workingDirectory);
+            }
         }
 
-        private static void InvokeProcess(bool useShellExecute, string arguments, string fileName, string workingDirectory)
+        private static string GetSingleArgument(string argument)
+        {
+            return "\"" + argument + "\"" + " ";
+        }
+
+        private static void InvokeProcess(string arguments, string fileName, bool useShellExecute, string workingDirectory)
         {
             var start = new ProcessStartInfo()
             {

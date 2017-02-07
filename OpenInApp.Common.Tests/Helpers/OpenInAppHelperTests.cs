@@ -11,50 +11,50 @@ namespace OpenInApp.Common.Tests.Helpers
 
         [Test()]
         [Category("I")]
-        //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Altova\XMLSpy2016\XMLSpy.exe", null)]
-        //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Markdown Monster\MarkdownMonster.exe", null)]
-        //nothing happens [TestCase(@"C:\Users\greg\AppData\Local\atom\app-1.13.1\atom.exe", null)]
-        //happily opens last file in arguments list, but only last item         [TestCase(@"C:\Users\greg\Desktop\ZZZ open in\_emacs-25.1-2-x86_64-w64-mingw32\bin\runemacs.exe", null)]
-        //emacs only works on 1 file at a time, so must fire up 2 Process.Start's
-            //fails with one or two args     [TestCase(@"C:\Program Files (x86)\LINQPad5\LINQPad.exe", null)]
-        //fails with 1 arg prob 2 args also [TestCase(@"C:\Program Files (x86)\LINQPad4\LINQPad.exe", null)]
-     //does nothing  [TestCase(@"C:\Program Files (x86)\LINQPad4\LPRun.exe", null)]
-        //happily opens last file in arguments list, but only last item         [TestCase(@"C:\Windows\system32\notepad.exe", false)]
-        //nothing happens  [TestCase(@"C:\Program Files (x86)\Vim\vim80\vim.exe", null)]//without mouse
-        //works but for one and only ine file   [TestCase(@"C:\Program Files (x86)\Vim\vim80\gvim.exe", null)]//with mouse - graphical vim
-        //fails with 1 and 2 arguments  [TestCase(@"C:\Program Files\Windows NT\Accessories\wordpad.exe", null)]
-        public void InvokeCommandTest_TextApps(string executableFullPath, bool? useShellExecute)
+        //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Altova\XMLSpy2016\XMLSpy.exe", false, null)]
+        //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Markdown Monster\MarkdownMonster.exe", false, null)]
+        //happily open both files [TestCase(@"C:\Windows\system32\notepad.exe", true, false)]
+        //happily open both files [TestCase(@"C:\Program Files (x86)\Vim\vim80\gvim.exe", true, null)]//with mouse - graphical vim
+        //happily open both files [TestCase(@"C:\Users\greg\Desktop\ZZZ open in\_emacs-25.1-2-x86_64-w64-mingw32\bin\runemacs.exe", true, null)]
+        //nothing happens [TestCase(@"C:\Users\greg\AppData\Local\atom\app-1.13.1\atom.exe", false, null)]
+        //nothing happens [TestCase(@"C:\Program Files (x86)\LINQPad4\LPRun.exe", false, null)]
+        //nothing happens [TestCase(@"C:\Program Files (x86)\Vim\vim80\vim.exe", false, null)]//without mouse
+        //fails with 1 and 2 arguments [TestCase(@"C:\Program Files (x86)\LINQPad5\LINQPad.exe", false, null)]
+        //fails with 1 and 2 arguments [TestCase(@"C:\Program Files\Windows NT\Accessories\wordpad.exe", false, null)]
+        //fails with 1 arg prob 2 args also [TestCase(@"C:\Program Files (x86)\LINQPad4\LINQPad.exe", false, null)]
+        public void InvokeCommandTest_TextApps(string executableFullPath, bool separateProcessPerFileToBeOpened, bool? useShellExecute)
         {
             // Arrange
             var actualFilesToBeOpened = new List<string>
             {
-           //     @"C:\Temp\a.txt",
-               // @"C:\Temp\b.txt",
-                @"C:\Temp\a.linq",
-                @"C:\Temp\b.sql",
+                @"C:\Temp\a.txt",
+                @"C:\Temp\b.txt",
+               // @"C:\Temp\a.linq",
+               // @"C:\Temp\b.sql",
             };
 
             // Act
-            Act(executableFullPath, useShellExecute, actualFilesToBeOpened);
+            Act(actualFilesToBeOpened, executableFullPath, separateProcessPerFileToBeOpened, useShellExecute);
         }
 
         [Test()]
         [Category("I")]
+        //works fully, 2 files, 2 tabs, not the dev browser          [TestCase(@"C:\Program Files (x86)\Opera\opera.exe", null)]
+        //works fully, 2 files, 2 tabs, in dev browser          [TestCase(@"C:\Program Files\Opera developer\launcher.exe", null)]
+        //works fully, 2 files, 2 tabs    [TestCase(@"C:\Users\greg\AppData\Local\Vivaldi\Application\vivaldi.exe", null)]
         //works with 2 files, 1 browser window 2 tabs but opens canary        [TestCase(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe", null)]
         //works succesfully    [TestCase(@"C:\Users\greg\AppData\Local\Google\Chrome SxS\Application\chrome.exe", null)]//(canary)
         //works with 2 files, 1 browser window 2 tabs but opens aurora         [TestCase(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", null)]
         //works succesfully  [TestCase(@"C:\Program Files\Firefox Developer Edition\firefox.exe", null)]//(aurora)
         //works but ignores the args, when 2 argsat least  [TestCase(@"C:\Program Files (x86)\Internet Explorer\iexplore.exe", null)]
-        //nothing happens  [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe", null)]
-        //nothing happens  [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe", false)]
-      //nothing happens [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdgeCP.exe", null)]// cp = content process
-      //nothing happens  [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdgeCP.exe", false)]// cp = content process
-        //works fully, 2 files, 2 tabs, not the dev browser          [TestCase(@"C:\Program Files (x86)\Opera\opera.exe", null)]
-        //works fully, 2 files, 2 tabs, in dev browser          [TestCase(@"C:\Program Files\Opera developer\launcher.exe", null)]
-        //works fully, 2 files, 2 tabs        [TestCase(@"C:\Users\greg\AppData\Local\Vivaldi\Application\vivaldi.exe", null)]
+        //nothing happens [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe", null)]
+        //nothing happens [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe", false)]
+        //nothing happens [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdgeCP.exe", null)]// cp = content process
+        //nothing happens [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdgeCP.exe", false)]// cp = content process
         public void InvokeCommandTest_BrowserApps(string executableFullPath, bool? useShellExecute)
         {
             // Arrange
+            bool separateProcessPerFileToBeOpened = false;
             var actualFilesToBeOpened = new List<string>
             {
                 @"C:\Temp\a.txt",
@@ -62,7 +62,7 @@ namespace OpenInApp.Common.Tests.Helpers
             };
 
             // Act
-            Act(executableFullPath, useShellExecute, actualFilesToBeOpened);
+            Act(actualFilesToBeOpened, executableFullPath, separateProcessPerFileToBeOpened, useShellExecute);
         }
 
         [Test()]
@@ -78,6 +78,7 @@ namespace OpenInApp.Common.Tests.Helpers
         public void InvokeCommandTest_StudioApps(string executableFullPath, bool? useShellExecute)
         {
             // Arrange
+            bool separateProcessPerFileToBeOpened = false;
             var actualFilesToBeOpened = new List<string>
             {
                 @"C:\Temp\a.txt",
@@ -85,31 +86,31 @@ namespace OpenInApp.Common.Tests.Helpers
             };
 
             // Act
-            Act(executableFullPath, useShellExecute, actualFilesToBeOpened);
+            Act(actualFilesToBeOpened, executableFullPath, separateProcessPerFileToBeOpened, useShellExecute);
         }
 
         [Test()]
         [Category("I")]
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\bin\gimp-2.8.exe", null)]
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Paint.NET\PaintDotNet.exe", null)]
-        //nothing happens,even with 1 file [TestCase(@"C:\Windows\system32\mspaint.exe", null)]
-        //works but only with first jpeg   [TestCase(@"C:\Windows\system32\mspaint.exe", false)]
-        // nothing happens  [TestCase(@"C:\Program Files (x86)\DeDup\DeDup.exe", null)]
-        //works but doesnt use argument, evn if single arg that is a directory   [TestCase(@"C:\Program Files (x86)\DeDup\DeDup.exe", false)]
-        //works with multiple args, file or folder, but only uses the final argument   [TestCase(@"C:\Program Files (x86)\FastStone Image Viewer\FSViewer.exe", null)]
-        //  works but args ignored even 1 jpg arg or 1 directory arg    [TestCase(@"C:\Program Files (x86)\Windows Live\Photo Gallery\WLXPhotoGallery.exe", null)]
-        public void InvokeCommandTest_ImageApps(string executableFullPath, bool? useShellExecute)
+        //happyily opens both files [TestCase(@"C:\Windows\system32\mspaint.exe", true, false)]   
+        //works with multiple args, file or folder, but only uses the final argument         [TestCase(@"C:\Program Files (x86)\FastStone Image Viewer\FSViewer.exe", true, null)]
+        //works but args ignored even if single arg that is a directory [TestCase(@"C:\Program Files (x86)\DeDup\DeDup.exe", false)]
+        //works but args ignored even if single arg that is a directory or jpg [TestCase(@"C:\Program Files (x86)\Windows Live\Photo Gallery\WLXPhotoGallery.exe", null)]
+        //nothing happens [TestCase(@"C:\Program Files (x86)\DeDup\DeDup.exe", null)]
+        //nothing happens even with 1 file [TestCase(@"C:\Windows\system32\mspaint.exe", null)]
+        public void InvokeCommandTest_ImageApps(string executableFullPath, bool separateProcessPerFileToBeOpened, bool? useShellExecute)
         {
             // Arrange
             var actualFilesToBeOpened = new List<string>
             {
-                //  @"C:\Temp\a.jpg",
-           //     @"C:\Temp\b.jpg",
-                 @"C:\Temp",
+                  @"C:\Temp\a.jpg",
+                  @"C:\Temp\b.jpg",
+                  //@"C:\Temp",
             };
 
             // Act
-            Act(executableFullPath, useShellExecute, actualFilesToBeOpened);
+            Act(actualFilesToBeOpened, executableFullPath, separateProcessPerFileToBeOpened, useShellExecute);
         }
 
         [Test()]
@@ -119,6 +120,7 @@ namespace OpenInApp.Common.Tests.Helpers
         public void InvokeCommandTest_FolderSizes(string executableFullPath, bool? useShellExecute)
         {
             // Arrange
+            bool separateProcessPerFileToBeOpened = false;
             var actualFilesToBeOpened = new List<string>
             {
                 @"C:\Temp\a.txt",
@@ -127,7 +129,7 @@ namespace OpenInApp.Common.Tests.Helpers
             };
 
             // Act
-            Act(executableFullPath, useShellExecute, actualFilesToBeOpened);
+            Act(actualFilesToBeOpened, executableFullPath, separateProcessPerFileToBeOpened, useShellExecute);
         }
 
         [Test()]
@@ -139,6 +141,7 @@ namespace OpenInApp.Common.Tests.Helpers
         public void InvokeCommandTest_TODOCategory(string executableFullPath, bool? useShellExecute)
         {
             // Arrange
+            bool separateProcessPerFileToBeOpened = false;
             var actualFilesToBeOpened = new List<string>
             {
                 @"C:\Temp\a.mpg",
@@ -148,18 +151,20 @@ namespace OpenInApp.Common.Tests.Helpers
             };
 
             // Act
-            Act(executableFullPath, useShellExecute, actualFilesToBeOpened);
+            Act(actualFilesToBeOpened, executableFullPath, separateProcessPerFileToBeOpened, useShellExecute);
         }
 
-        private void Act(string executableFullPath, bool? useShellExecute, IEnumerable<string> actualFilesToBeOpened)
+        private void Act(IEnumerable<string> actualFilesToBeOpened, string executableFullPath, bool? separateProcessPerFileToBeOpened, bool? useShellExecute)
         {
-            if (useShellExecute.HasValue)
+            if (!separateProcessPerFileToBeOpened.HasValue && !useShellExecute.HasValue)
             {
-                OpenInAppHelper.InvokeCommand(actualFilesToBeOpened, executableFullPath, useShellExecute.Value);
+                OpenInAppHelper.InvokeCommand(actualFilesToBeOpened, executableFullPath);
             }
             else
             {
-                OpenInAppHelper.InvokeCommand(actualFilesToBeOpened, executableFullPath);
+                OpenInAppHelper.InvokeCommand(actualFilesToBeOpened, executableFullPath,
+                    separateProcessPerFileToBeOpened.HasValue ? separateProcessPerFileToBeOpened.Value : false,
+                    useShellExecute.HasValue ? useShellExecute.Value : true);
             }
         }
     }
