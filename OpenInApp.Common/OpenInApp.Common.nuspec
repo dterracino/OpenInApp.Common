@@ -11,7 +11,7 @@
     <iconUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/OpenInApp_Generic_175x175.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Cater for uninstalled app or installing vsix before the target app</releaseNotes>
+    <releaseNotes>Save files before opening, Handle files opened from code editor window</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>OpenInApp.Common</tags>
   </metadata>

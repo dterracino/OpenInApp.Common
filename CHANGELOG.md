@@ -2,6 +2,13 @@
 
 These are the changes to each version that has been released on the official Visual Studio extension gallery.
 
+## 1.0.69
+
+**2017-01-28** <!--10:30 UK / 10:30 UTC-->
+
+- [x] Save files before opening
+- [x] Handle files opened from code editor window
+
 ## 1.0.57
 
 **2017-01-28** <!--10:30 UK / 10:30 UTC-->
