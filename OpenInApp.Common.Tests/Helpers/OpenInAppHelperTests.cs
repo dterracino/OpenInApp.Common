@@ -13,9 +13,9 @@ namespace OpenInApp.Common.Tests.Helpers
         [Category("I")]
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Altova\XMLSpy2016\XMLSpy.exe", false, null)]
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Markdown Monster\MarkdownMonster.exe", false, null)]
-        //happily open both files [TestCase(@"C:\Windows\system32\notepad.exe", true, false)]
-        //happily open both files [TestCase(@"C:\Program Files (x86)\Vim\vim80\gvim.exe", true, null)]//with mouse - graphical vim
-        //happily open both files [TestCase(@"C:\Users\greg\Desktop\ZZZ open in\_emacs-25.1-2-x86_64-w64-mingw32\bin\runemacs.exe", true, null)]
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Windows\system32\notepad.exe", true, false)]
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Program Files (x86)\Vim\vim80\gvim.exe", true, null)]//with mouse - graphical vim
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Users\greg\Desktop\ZZZ open in\_emacs-25.1-2-x86_64-w64-mingw32\bin\runemacs.exe", true, null)]
         //nothing happens [TestCase(@"C:\Users\greg\AppData\Local\atom\app-1.13.1\atom.exe", false, null)]
         //nothing happens [TestCase(@"C:\Program Files (x86)\LINQPad4\LPRun.exe", false, null)]
         //nothing happens [TestCase(@"C:\Program Files (x86)\Vim\vim80\vim.exe", false, null)]//without mouse
@@ -29,8 +29,8 @@ namespace OpenInApp.Common.Tests.Helpers
             {
                 @"C:\Temp\a.txt",
                 @"C:\Temp\b.txt",
-               // @"C:\Temp\a.linq",
-               // @"C:\Temp\b.sql",
+                //@"C:\Temp\a.linq",
+                //@"C:\Temp\b.sql",
             };
 
             // Act
@@ -39,13 +39,13 @@ namespace OpenInApp.Common.Tests.Helpers
 
         [Test()]
         [Category("I")]
-        //works fully, 2 files, 2 tabs, not the dev browser          [TestCase(@"C:\Program Files (x86)\Opera\opera.exe", null)]
-        //works fully, 2 files, 2 tabs, in dev browser          [TestCase(@"C:\Program Files\Opera developer\launcher.exe", null)]
-        //works fully, 2 files, 2 tabs    [TestCase(@"C:\Users\greg\AppData\Local\Vivaldi\Application\vivaldi.exe", null)]
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Users\greg\AppData\Local\Vivaldi\Application\vivaldi.exe", null)]
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Program Files (x86)\Opera\opera.exe", null)]
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Program Files\Opera developer\launcher.exe", null)]        
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Program Files\Firefox Developer Edition\firefox.exe", null)]//(aurora)
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Users\greg\AppData\Local\Google\Chrome SxS\Application\chrome.exe", null)]//(canary)
         //works with 2 files, 1 browser window 2 tabs but opens canary        [TestCase(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe", null)]
-        //works succesfully    [TestCase(@"C:\Users\greg\AppData\Local\Google\Chrome SxS\Application\chrome.exe", null)]//(canary)
         //works with 2 files, 1 browser window 2 tabs but opens aurora         [TestCase(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", null)]
-        //works succesfully  [TestCase(@"C:\Program Files\Firefox Developer Edition\firefox.exe", null)]//(aurora)
         //works but ignores the args, when 2 argsat least  [TestCase(@"C:\Program Files (x86)\Internet Explorer\iexplore.exe", null)]
         //nothing happens [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe", null)]
         //nothing happens [TestCase(@"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe", false)]
@@ -73,8 +73,8 @@ namespace OpenInApp.Common.Tests.Helpers
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe", false)]
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe", false)]
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\devenv.exe", false)]
-       //tested two files successfully  [TestCase(@"C:\Program Files (x86)\Xamarin Studio\bin\XamarinStudio.exe", null)]
-       //app splash screen shows but app doesnt open [TestCase(@"C:\Program Files (x86)\Microsoft SQL Server\90\Tools\Binn\VSShell\Common7\IDE\ssmsee.exe", null)]
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Program Files (x86)\Xamarin Studio\bin\XamarinStudio.exe", null)]
+        //app splash screen shows but app doesnt open [TestCase(@"C:\Program Files (x86)\Microsoft SQL Server\90\Tools\Binn\VSShell\Common7\IDE\ssmsee.exe", null)]
         public void InvokeCommandTest_StudioApps(string executableFullPath, bool? useShellExecute)
         {
             // Arrange
@@ -93,8 +93,8 @@ namespace OpenInApp.Common.Tests.Helpers
         [Category("I")]
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\bin\gimp-2.8.exe", null)]
         //TESTED & LIVE [TestCase(@"C:\Program Files (x86)\Paint.NET\PaintDotNet.exe", null)]
-        //happyily opens both files [TestCase(@"C:\Windows\system32\mspaint.exe", true, false)]   
-        //works with multiple args, file or folder, but only uses the final argument         [TestCase(@"C:\Program Files (x86)\FastStone Image Viewer\FSViewer.exe", true, null)]
+        //HAPPILY OPENS BOTH FILES [TestCase(@"C:\Windows\system32\mspaint.exe", true, false)]   
+        //works with multiple args, file or folder, but only uses the final argument [TestCase(@"C:\Program Files (x86)\FastStone Image Viewer\FSViewer.exe", true, null)]
         //works but args ignored even if single arg that is a directory [TestCase(@"C:\Program Files (x86)\DeDup\DeDup.exe", false)]
         //works but args ignored even if single arg that is a directory or jpg [TestCase(@"C:\Program Files (x86)\Windows Live\Photo Gallery\WLXPhotoGallery.exe", null)]
         //nothing happens [TestCase(@"C:\Program Files (x86)\DeDup\DeDup.exe", null)]
@@ -115,8 +115,8 @@ namespace OpenInApp.Common.Tests.Helpers
 
         [Test()]
         [Category("I")]
-   //works for first entry in list, file or directory    [TestCase(@"C:\Program Files (x86)\WinDirStat\windirstat.exe", null)]
-   //works for all 3, although rejects files     [TestCase(@"C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe", null)]//NOADMIN=no network drives
+        //works for first entry in list, file or directory [TestCase(@"C:\Program Files (x86)\WinDirStat\windirstat.exe", null)]
+        //works for all 3, although rejects files [TestCase(@"C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe", null)]//NOADMIN=no network drives
         public void InvokeCommandTest_FolderSizes(string executableFullPath, bool? useShellExecute)
         {
             // Arrange
@@ -134,10 +134,10 @@ namespace OpenInApp.Common.Tests.Helpers
 
         [Test()]
         [Category("I")]
-     //works, but needs testing with files actually locked   [TestCase(@"C:\Program Files\Unlocker\Unlocker.exe", null)]
-     //opens app but even with just 1 arg containing folder name the app doesnt use the argument [TestCase(@"C:\Program Files (x86)\File Renamer\FileRenamer.exe", null)]
-  //nothing happens even just 1 file      [TestCase(@"C:\Program Files (x86)\Windows Media Player\wmplayer.exe", null)]
-    //works, with 1 file at least, but video is black!    [TestCase(@"C:\Program Files (x86)\Windows Media Player\wmplayer.exe", false)]
+        //works, but needs testing with files actually locked [TestCase(@"C:\Program Files\Unlocker\Unlocker.exe", null)]
+        //opens app but even with just 1 arg containing folder name the app doesnt use the argument [TestCase(@"C:\Program Files (x86)\File Renamer\FileRenamer.exe", null)]
+        //nothing happens even just 1 file [TestCase(@"C:\Program Files (x86)\Windows Media Player\wmplayer.exe", null)]
+        //works, with 1 file at least, but video is black! [TestCase(@"C:\Program Files (x86)\Windows Media Player\wmplayer.exe", false)]
         public void InvokeCommandTest_TODOCategory(string executableFullPath, bool? useShellExecute)
         {
             // Arrange
@@ -145,9 +145,9 @@ namespace OpenInApp.Common.Tests.Helpers
             var actualFilesToBeOpened = new List<string>
             {
                 @"C:\Temp\a.mpg",
-         //       @"C:\Temp\b.mpeg",
-             //   @"C:\Temp\b.txt",
-              //  @"C:\Temp",
+                //@"C:\Temp\b.mpeg",
+                //@"C:\Temp\b.txt",
+                //@"C:\Temp",
             };
 
             // Act

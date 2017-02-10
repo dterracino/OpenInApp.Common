@@ -40,36 +40,38 @@ namespace OpenInApp.Common.Helpers
         }
 
         /// <summary>
-        /// Gets the file names to be opened, as chosen in Solution Explorer.
-        /// </summary>
-        /// <param name="dte">The DTE.</param>
-        /// <returns></returns>
-        public static IEnumerable<string> GetFileNamesToBeOpened(DTE2 dte)
-        {
-            var items = GetSelectedFilesToBeOpened(dte);
-
-            var result = new List<string>();
-
-            foreach (var item in items)
-            {
-                result.Add(item);
-            }
-
-            return result;
-        }
-
-        /// <summary>
         /// Gets the selected files to be opened, as chosen in Solution Explorer.
         /// </summary>
         /// <param name="dte">The DTE.</param>
+        /// <param name="isFromSolutionExplorer">Differentiator for solution explorer versus code editor window.</param>
         /// <returns></returns>
-        public static IEnumerable<string> GetSelectedFilesToBeOpened(DTE2 dte)
+        public static IEnumerable<string> GetFileNamesToBeOpened(DTE2 dte, bool isFromSolutionExplorer = true)
         {
-            var selectedItems = (Array)dte.ToolWindows.SolutionExplorer.SelectedItems;
+            var fileNamesToBeOpened = new List<string>();
 
-            return from selectedItem in selectedItems.Cast<UIHierarchyItem>()
-                   let projectItem = selectedItem.Object as ProjectItem
-                   select projectItem.FileNames[1];
+            if (isFromSolutionExplorer)
+            {
+                var selectedItems = dte.SelectedItems;
+                foreach (SelectedItem selectedItem in selectedItems)
+                {
+                    try
+                    {
+                        selectedItem.ProjectItem.Save();
+                    }
+                    catch (Exception)
+                    {
+                        // ignored - or log as save failed to output window ? gregt
+                    }
+                    fileNamesToBeOpened.Add(selectedItem.ProjectItem.FileNames[0]);
+                }
+            }
+            else
+            {
+                dte.ActiveDocument.Save();
+                fileNamesToBeOpened.Add(dte.ActiveDocument.FullName);
+            }
+
+            return fileNamesToBeOpened;
         }
 
         /// <summary>
