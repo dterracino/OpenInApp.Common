@@ -2,6 +2,16 @@
 
 These are the changes to each version that has been released on the official Visual Studio extension gallery.
 
+# OpenInApp.Command
+
+## 1.0.0
+
+**2017-02-12**
+
+Initial release
+
+# OpenInApp.Common 
+
 ## 1.0.69
 
 **2017-01-28** <!--10:30 UK / 10:30 UTC-->
