@@ -104,6 +104,10 @@
       <HintPath>..\packages\Microsoft.VisualStudio.Validation.14.1.111\lib\net45\Microsoft.VisualStudio.Validation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OpenInApp.Common, Version=1.0.69.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenInApp.Common.1.0.69\lib\net45\OpenInApp.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\packages\stdole.7.0.3301\lib\net10\stdole.dll</HintPath>
@@ -129,12 +133,6 @@
     <Compile Include="PersistOptionsDto.cs" />
     <Compile Include="FilePrompterHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OpenInApp.Common\OpenInApp.Common.csproj">
-      <Project>{78680fb3-22e5-4200-9756-2c2cec66161d}</Project>
-      <Name>OpenInApp.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
