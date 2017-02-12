@@ -124,9 +124,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpenInAppCommand2.cs" />
+    <Compile Include="CommandOpenInApp.cs" />
     <Compile Include="SaveSettingsDto.cs" />
-    <Compile Include="FileHelper.cs" />
+    <Compile Include="CommandFileHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

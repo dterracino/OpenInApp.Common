@@ -3,15 +3,15 @@ using System.Windows.Forms;
 
 namespace OpenInApp.Command
 {
-    public class FileHelper
+    public class CommandFileHelper
     {
         private string caption { get; set; }
-        private string constantsForAppExecutableFileToBrowseFor { get; set; }
+        private string executableFileToBrowseFor { get; set; }
 
-        public FileHelper(string caption, string constantsForAppExecutableFileToBrowseFor)
+        public CommandFileHelper(string caption, string executableFileToBrowseFor)
         {
             this.caption = caption;
-            this.constantsForAppExecutableFileToBrowseFor = constantsForAppExecutableFileToBrowseFor;
+            this.executableFileToBrowseFor = executableFileToBrowseFor;
         }
 
         public SaveSettingsDto PromptForActualExeFile(string originalPathToFile)
@@ -27,21 +27,21 @@ namespace OpenInApp.Command
             switch (box)
             {
                 case DialogResult.Yes:
-                    var resultAndNamePicked = CommonFileHelper.BrowseToFileLocation(constantsForAppExecutableFileToBrowseFor);
+                    var resultAndNamePicked = CommonFileHelper.BrowseToFileLocation(executableFileToBrowseFor);
                     if (resultAndNamePicked.DialogResult == DialogResult.OK)
                     {
-                        PersistVSToolOptions(saveSettingsDto, resultAndNamePicked.FileNameChosen);
+                        SetSaveSettingsDto(saveSettingsDto, resultAndNamePicked.FileNameChosen);
                     }
                     break;
                 case DialogResult.No:
-                    PersistVSToolOptions(saveSettingsDto, originalPathToFile);
+                    SetSaveSettingsDto(saveSettingsDto, originalPathToFile);
                     break;
             }
 
             return saveSettingsDto;
         }
 
-        private void PersistVSToolOptions(SaveSettingsDto saveSettingsDto, string fileName)
+        private void SetSaveSettingsDto(SaveSettingsDto saveSettingsDto, string fileName)
         {
             saveSettingsDto.StringToPersist = fileName;
             saveSettingsDto.SaveSettings = true;

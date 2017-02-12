@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace OpenInApp.Command
 {
-    public class OpenInAppCommand2
+    public class CommandOpenInApp
     {
         public SaveSettingsDto MenuItemCallback(
             bool isFromSolutionExplorer, 
@@ -17,7 +17,7 @@ namespace OpenInApp.Command
             string ActualPathToExe, 
             string FileQuantityWarningLimit,
             bool SuppressTypicalFileExtensionsWarning, 
-            string TypicalFileExtensions)
+            string TypicalFileExtensions)//gregt shorten this list
         {
             var dte = (DTE2)ServiceProvider.GetService(typeof(DTE));
             var saveSettingsDto = new SaveSettingsDto();
@@ -30,7 +30,7 @@ namespace OpenInApp.Command
                 if (!actualPathToExeExists)
                 {
                     proceedToExecute = false;
-                    var fileHelper = new FileHelper(ConstantsForAppCaption, ConstantsForAppExecutableFileToBrowseFor);
+                    var fileHelper = new CommandFileHelper(ConstantsForAppCaption, ConstantsForAppExecutableFileToBrowseFor);
                     saveSettingsDto = fileHelper.PromptForActualExeFile(ActualPathToExe);
 
                     var newActualPathToExeExists = CommonFileHelper.DoesFileExist(ActualPathToExe);
@@ -56,38 +56,46 @@ namespace OpenInApp.Command
                     else
                     {
                         int fileQuantityWarningLimitInt;
-                        int.TryParse(FileQuantityWarningLimit, out fileQuantityWarningLimitInt);//gregt check the bool output of this try parse ?
-                        proceedToExecute = false;
-                        if (actualFilesToBeOpened.Count() > fileQuantityWarningLimitInt)
+                        var isInt = int.TryParse(FileQuantityWarningLimit, out fileQuantityWarningLimitInt);
+                        if (isInt)
                         {
-                            proceedToExecute = OpenInAppHelper.ConfirmProceedToExecute(Caption, CommonConstants.ConfirmOpenFileQuantityExceedsWarningLimit);
-                        }
-                        else
-                        {
-                            proceedToExecute = true;
-                        }
-                        if (proceedToExecute)
-                        {
-                            var typicalFileExtensionAsList = CommonFileHelper.GetTypicalFileExtensionAsList(TypicalFileExtensions);
-                            var areTypicalFileExtensions = CommonFileHelper.AreTypicalFileExtensions(actualFilesToBeOpened, typicalFileExtensionAsList);
-                            if (!areTypicalFileExtensions)
+                            proceedToExecute = false;
+                            if (actualFilesToBeOpened.Count() > fileQuantityWarningLimitInt)
                             {
-                                if (SuppressTypicalFileExtensionsWarning)
-                                {
-                                    proceedToExecute = true;
-                                }
-                                else
-                                {
-                                    proceedToExecute = OpenInAppHelper.ConfirmProceedToExecute(Caption, CommonConstants.ConfirmOpenNonTypicalFile);
-                                }
+                                proceedToExecute = OpenInAppHelper.ConfirmProceedToExecute(Caption, CommonConstants.ConfirmOpenFileQuantityExceedsWarningLimit);
+                            }
+                            else
+                            {
+                                proceedToExecute = true;
                             }
                             if (proceedToExecute)
                             {
-                                /* gregtgregt delete this comment
-                                 * true for sublime text, vs code, etc
-                                 * false for devenv.exe */
-                                OpenInAppHelper.InvokeCommand(actualFilesToBeOpened, ActualPathToExe, true);
+                                var typicalFileExtensionAsList = CommonFileHelper.GetTypicalFileExtensionAsList(TypicalFileExtensions);
+                                var areTypicalFileExtensions = CommonFileHelper.AreTypicalFileExtensions(actualFilesToBeOpened, typicalFileExtensionAsList);
+                                if (!areTypicalFileExtensions)
+                                {
+                                    if (SuppressTypicalFileExtensionsWarning)
+                                    {
+                                        proceedToExecute = true;
+                                    }
+                                    else
+                                    {
+                                        proceedToExecute = OpenInAppHelper.ConfirmProceedToExecute(Caption, CommonConstants.ConfirmOpenNonTypicalFile);
+                                    }
+                                }
+                                if (proceedToExecute)
+                                {
+                                    /* gregtgregt delete this comment
+                                     * true for sublime text, vs code, etc
+                                     * false for devenv.exe */
+                                    OpenInAppHelper.InvokeCommand(actualFilesToBeOpened, ActualPathToExe, true);
+                                }
                             }
+                        }
+                        else
+                        {
+                            Logger.Log(Caption + " unexpected non-integer value found.");
+                            OpenInAppHelper.ShowUnexpectedError(Caption);
                         }
                     }
                 }
