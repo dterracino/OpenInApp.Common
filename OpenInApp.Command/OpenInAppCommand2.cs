@@ -2,10 +2,7 @@
 using EnvDTE80;
 using OpenInApp.Common.Helpers;
 using System;
-//using System.Collections.Generic;
 using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
 
 namespace OpenInApp.Command
 {
@@ -35,10 +32,6 @@ namespace OpenInApp.Command
                     proceedToExecute = false;
                     var fileHelper = new FileHelper(ConstantsForAppCaption, ConstantsForAppExecutableFileToBrowseFor);
                     saveSettingsDto = fileHelper.PromptForActualExeFile(ActualPathToExe);
-                    //if (saveSettingsDto.SaveSettings)
-                    //{
-                    //    VSPackage.Options.PersistVSToolOptions(saveSettingsDto.StringToPersist);
-                    //}
 
                     var newActualPathToExeExists = CommonFileHelper.DoesFileExist(ActualPathToExe);
                     if (newActualPathToExeExists)
@@ -63,7 +56,7 @@ namespace OpenInApp.Command
                     else
                     {
                         int fileQuantityWarningLimitInt;
-                        int.TryParse(FileQuantityWarningLimit, out fileQuantityWarningLimitInt);//gregt check the bool output of this try parse
+                        int.TryParse(FileQuantityWarningLimit, out fileQuantityWarningLimitInt);//gregt check the bool output of this try parse ?
                         proceedToExecute = false;
                         if (actualFilesToBeOpened.Count() > fileQuantityWarningLimitInt)
                         {
@@ -107,6 +100,5 @@ namespace OpenInApp.Command
 
             return saveSettingsDto;
         }
-
     }
 }
