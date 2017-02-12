@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Greg Trevellick")]
 [assembly: AssemblyProduct("OpenInApp.Common")]
-[assembly: AssemblyCopyright("Copyright ©  Greg Trevellick 2017")]
+[assembly: AssemblyCopyright("Copyright © Greg Trevellick 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
