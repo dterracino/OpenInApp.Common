@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenInApp.Common.Archives",
 		OpenInApp.Common.Archives\OpenInApp.Common.1.0.36.nupkg = OpenInApp.Common.Archives\OpenInApp.Common.1.0.36.nupkg
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenInApp.Command", "OpenInApp.Command\OpenInApp.Command.csproj", "{FB454D10-D473-4E49-A289-9BB8713DA1A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{14817DAF-3B76-4E3A-9C6B-B69C9A438183}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14817DAF-3B76-4E3A-9C6B-B69C9A438183}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14817DAF-3B76-4E3A-9C6B-B69C9A438183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB454D10-D473-4E49-A289-9BB8713DA1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB454D10-D473-4E49-A289-9BB8713DA1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB454D10-D473-4E49-A289-9BB8713DA1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB454D10-D473-4E49-A289-9BB8713DA1A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
