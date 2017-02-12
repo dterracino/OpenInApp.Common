@@ -10,9 +10,9 @@
     <projectUrl>https://github.com/GregTrevellick/OpenInApp.Common</projectUrl>
     <iconUrl>https://github.com/GregTrevellick/OpenInApp.Common/blob/master/OpenInApp_Generic_175x175.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Save files before opening, Handle files opened from code editor window</releaseNotes>
+    <description>Common command code for Open In App set of Visual Studio extensions.</description>
+    <releaseNotes>Initial release.</releaseNotes>
     <copyright>Copyright Greg Trevellick 2017</copyright>
-    <tags>OpenInApp.Common</tags>
+    <tags>OpenInApp.Command</tags>
   </metadata>
 </package>
