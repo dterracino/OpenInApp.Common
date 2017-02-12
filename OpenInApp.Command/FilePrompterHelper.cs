@@ -3,20 +3,20 @@ using System.Windows.Forms;
 
 namespace OpenInApp.Command
 {
-    public class CommandFileHelper
+    public class FilePrompterHelper
     {
         private string caption { get; set; }
         private string executableFileToBrowseFor { get; set; }
 
-        public CommandFileHelper(string caption, string executableFileToBrowseFor)
+        public FilePrompterHelper(string caption, string executableFileToBrowseFor)
         {
             this.caption = caption;
             this.executableFileToBrowseFor = executableFileToBrowseFor;
         }
 
-        public SaveSettingsDto PromptForActualExeFile(string originalPathToFile)
+        public PersistOptionsDto PromptForActualExeFile(string originalPathToFile)
         {
-            var saveSettingsDto = new SaveSettingsDto();
+            var saveSettingsDto = new PersistOptionsDto();
 
             var box = MessageBox.Show(
                CommonConstants.PromptForActualExeFile(originalPathToFile),
@@ -41,10 +41,10 @@ namespace OpenInApp.Command
             return saveSettingsDto;
         }
 
-        private void SetSaveSettingsDto(SaveSettingsDto saveSettingsDto, string fileName)
+        private void SetSaveSettingsDto(PersistOptionsDto saveSettingsDto, string fileName)
         {
-            saveSettingsDto.StringToPersist = fileName;
-            saveSettingsDto.SaveSettings = true;
+            saveSettingsDto.ValueToPersist = fileName;
+            saveSettingsDto.Persist = true;
         }
     }
 }

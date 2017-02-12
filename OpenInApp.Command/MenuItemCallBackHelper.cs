@@ -6,34 +6,25 @@ using System.Linq;
 
 namespace OpenInApp.Command
 {
-    public class CommandOpenInApp
+    public class MenuItemCallBackHelper
     {
-        public SaveSettingsDto MenuItemCallback(
-            bool isFromSolutionExplorer, 
-            string ConstantsForAppCaption, 
-            string ConstantsForAppExecutableFileToBrowseFor,
-            string Caption, 
-            IServiceProvider ServiceProvider, 
-            string ActualPathToExe, 
-            string FileQuantityWarningLimit,
-            bool SuppressTypicalFileExtensionsWarning, 
-            string TypicalFileExtensions)//gregt shorten this list
+        public PersistOptionsDto InvokeCommandCallBack(InvokeCommandCallBackDto dto)
         {
-            var dte = (DTE2)ServiceProvider.GetService(typeof(DTE));
-            var saveSettingsDto = new SaveSettingsDto();
+            var dte = (DTE2)dto.ServiceProvider.GetService(typeof(DTE));
+            var persistOptionsDto = new PersistOptionsDto();
 
             try
             {
-                var actualPathToExeExists = CommonFileHelper.DoesFileExist(ActualPathToExe);
+                var actualPathToExeExists = CommonFileHelper.DoesFileExist(dto.ActualPathToExe);
 
                 bool proceedToExecute = true;
                 if (!actualPathToExeExists)
                 {
                     proceedToExecute = false;
-                    var fileHelper = new CommandFileHelper(ConstantsForAppCaption, ConstantsForAppExecutableFileToBrowseFor);
-                    saveSettingsDto = fileHelper.PromptForActualExeFile(ActualPathToExe);
+                    var fileHelper = new FilePrompterHelper(dto.Caption, dto.ExecutableFileToBrowseFor);
+                    persistOptionsDto = fileHelper.PromptForActualExeFile(dto.ActualPathToExe);
 
-                    var newActualPathToExeExists = CommonFileHelper.DoesFileExist(ActualPathToExe);
+                    var newActualPathToExeExists = CommonFileHelper.DoesFileExist(dto.ActualPathToExe);
                     if (newActualPathToExeExists)
                     {
                         proceedToExecute = true;
@@ -41,28 +32,28 @@ namespace OpenInApp.Command
                     else
                     {
                         // User somehow managed to browse/select a new location for the exe that doesn't actually exist - virtually impossible, but you never know...
-                        OpenInAppHelper.InformUserMissingFile(Caption, ActualPathToExe);
+                        OpenInAppHelper.InformUserMissingFile(dto.Caption, dto.ActualPathToExe);
                     }
                 }
                 if (proceedToExecute)
                 {
-                    var actualFilesToBeOpened = CommonFileHelper.GetFileNamesToBeOpened(dte, isFromSolutionExplorer);
+                    var actualFilesToBeOpened = CommonFileHelper.GetFileNamesToBeOpened(dte, dto.IsFromSolutionExplorer);
                     var actualFilesToBeOpenedExist = CommonFileHelper.DoFilesExist(actualFilesToBeOpened);
                     if (!actualFilesToBeOpenedExist)
                     {
                         var missingFileName = CommonFileHelper.GetMissingFileName(actualFilesToBeOpened);
-                        OpenInAppHelper.InformUserMissingFile(Caption, missingFileName);
+                        OpenInAppHelper.InformUserMissingFile(dto.Caption, missingFileName);
                     }
                     else
                     {
                         int fileQuantityWarningLimitInt;
-                        var isInt = int.TryParse(FileQuantityWarningLimit, out fileQuantityWarningLimitInt);
+                        var isInt = int.TryParse(dto.FileQuantityWarningLimit, out fileQuantityWarningLimitInt);
                         if (isInt)
                         {
                             proceedToExecute = false;
                             if (actualFilesToBeOpened.Count() > fileQuantityWarningLimitInt)
                             {
-                                proceedToExecute = OpenInAppHelper.ConfirmProceedToExecute(Caption, CommonConstants.ConfirmOpenFileQuantityExceedsWarningLimit);
+                                proceedToExecute = OpenInAppHelper.ConfirmProceedToExecute(dto.Caption, CommonConstants.ConfirmOpenFileQuantityExceedsWarningLimit);
                             }
                             else
                             {
@@ -70,17 +61,17 @@ namespace OpenInApp.Command
                             }
                             if (proceedToExecute)
                             {
-                                var typicalFileExtensionAsList = CommonFileHelper.GetTypicalFileExtensionAsList(TypicalFileExtensions);
+                                var typicalFileExtensionAsList = CommonFileHelper.GetTypicalFileExtensionAsList(dto.TypicalFileExtensions);
                                 var areTypicalFileExtensions = CommonFileHelper.AreTypicalFileExtensions(actualFilesToBeOpened, typicalFileExtensionAsList);
                                 if (!areTypicalFileExtensions)
                                 {
-                                    if (SuppressTypicalFileExtensionsWarning)
+                                    if (dto.SuppressTypicalFileExtensionsWarning)
                                     {
                                         proceedToExecute = true;
                                     }
                                     else
                                     {
-                                        proceedToExecute = OpenInAppHelper.ConfirmProceedToExecute(Caption, CommonConstants.ConfirmOpenNonTypicalFile);
+                                        proceedToExecute = OpenInAppHelper.ConfirmProceedToExecute(dto.Caption, CommonConstants.ConfirmOpenNonTypicalFile);
                                     }
                                 }
                                 if (proceedToExecute)
@@ -88,14 +79,14 @@ namespace OpenInApp.Command
                                     /* gregtgregt delete this comment
                                      * true for sublime text, vs code, etc
                                      * false for devenv.exe */
-                                    OpenInAppHelper.InvokeCommand(actualFilesToBeOpened, ActualPathToExe, true);
+                                    OpenInAppHelper.InvokeCommand(actualFilesToBeOpened, dto.ActualPathToExe, true);
                                 }
                             }
                         }
                         else
                         {
-                            Logger.Log(Caption + " unexpected non-integer value found.");
-                            OpenInAppHelper.ShowUnexpectedError(Caption);
+                            Logger.Log(dto.Caption + " unexpected non-integer value found.");
+                            OpenInAppHelper.ShowUnexpectedError(dto.Caption);
                         }
                     }
                 }
@@ -103,10 +94,10 @@ namespace OpenInApp.Command
             catch (Exception ex)
             {
                 Logger.Log(ex);
-                OpenInAppHelper.ShowUnexpectedError(Caption);
+                OpenInAppHelper.ShowUnexpectedError(dto.Caption);
             }
 
-            return saveSettingsDto;
+            return persistOptionsDto;
         }
     }
 }

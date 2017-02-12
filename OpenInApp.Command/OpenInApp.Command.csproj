@@ -124,9 +124,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandOpenInApp.cs" />
-    <Compile Include="SaveSettingsDto.cs" />
-    <Compile Include="CommandFileHelper.cs" />
+    <Compile Include="MenuItemCallBackHelper.cs" />
+    <Compile Include="InvokeCommandCallBackDto.cs" />
+    <Compile Include="PersistOptionsDto.cs" />
+    <Compile Include="FilePrompterHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
